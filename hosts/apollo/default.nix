@@ -17,7 +17,6 @@
     hardware.profiles = [
       "cpu/amd"
       "gpu/nvidia/turing"
-      "bluetooth"
     ];
 
     # hardware = {
