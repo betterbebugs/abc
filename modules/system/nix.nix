@@ -10,6 +10,8 @@ in {
   config = {
     environment.systemPackages = [pkgs.git];
 
+    nixpkgs.config.allowUnfree = true;
+
     nix = let
       registry = mapAttrs (_: v: {flake = v;}) inputs;
     in {

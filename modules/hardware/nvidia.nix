@@ -9,10 +9,9 @@ in mkMerge [
 
     # services.xserver.videoDrivers = mkDefault [ "nvidia" ];
 
-    hardware.opengl = {
+    hardware.graphics = {
       enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
+      enable32Bit = true;
       extraPackages = [ pkgs.nvidia-vaapi-driver ];
     };
 
@@ -36,9 +35,9 @@ in mkMerge [
     #   '')
       cudaPackages.cudatoolkit
       nvtopPackages.nvidia
+      libva
     ];
 
-    environment.systemPackages = with pkgs; [ libva ];
     environment.sessionVariables = {
       LIBVA_DRIVER_NAME = "nvidia";
       WLR_NO_HARDWARE_CURSORS = "1";

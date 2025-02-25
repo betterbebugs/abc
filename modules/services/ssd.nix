@@ -2,7 +2,7 @@
 
 let
   inherit (builtins) elem any attrValues;
-  inherit (lib) mkIf mkDefault;
+  inherit (lib) mkIf mkDefault mkEnableOption;
   cfg = config.opt.services.ssd;
 in {
   options.opt.services.ssd = {
@@ -16,6 +16,6 @@ in {
       fstrim.enable = mkDefault (!hasZfs);
       zfs.trim.enable = mkDefault hasZfs;
     };
+      boot.initrd.availableKernelModules = [ "nvme" ];
   };
-  boot.initrd.availableKernelModules = [ "nvme" ];
 }

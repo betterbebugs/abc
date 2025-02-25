@@ -58,7 +58,9 @@
   };
 
   # Change me later!
-  user.initialPassword = "nixos";
+  users.users.${config.opt.system.username} = {
+  initialPassword = "nixos";
+  };
   users.users.root.initialPassword = "nixos";
 
   security = {

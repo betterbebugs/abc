@@ -6,6 +6,9 @@
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
   };
+
+  boot.initrd.availableKernelModules = [ "nvme" ];
+
   time = {
     timeZone = "America/Montevideo";
     hardwareClockInLocalTime = true;
