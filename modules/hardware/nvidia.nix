@@ -1,8 +1,8 @@
 { lib, config, pkgs, ... }:
 
 let
-  inherit (lib) mkIf mkMerge hasPrefix mkDefault mkForce;
   inherit (builtins) elem any;
+  inherit (lib) mkIf mkMerge hasPrefix mkDefault mkForce;
   hardware = config.opt.hardware.profiles;
 in mkMerge [
   (mkIf (any (s: hasPrefix "gpu/nvidia" s) hardware) {
